@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Game</title>
+    <link rel="stylesheet" href="Styles.css">
+    <!-- this line imports an external JavaScript file into our HTML Page -->
+<!-- <Script src="code.js"></Script> -->
+<script src="code.js"> 
+</script>
+<!-- TODO: move the JavaScript code to external JS File -->
+    <Script> 
+    // functions are a nice way to organize our code and make our code reusable
+    // use a descriptive function name - functions do something, so make it a verb/action
+    // () can hold function argument - if you need to pass in information to the function 
+        function playCraps(){
+            // log that the function was called
+            console.log("playCraps() function was called"); 
+
+            // roll die 1
+            let roll1 = rollDice();
+            // roll die 2
+            let roll2 = rollDice();
+
+            console.log("roll1=" + roll1);
+            console.log("roll2=" + roll2);
+
+            // Calculate the rolls
+            let sum =  roll1 + roll2;
+
+            // display roll 1 in the roll 1 div
+            document.getElementById("divRoll1").textContent = "Roll 1: " + roll1;
+            document.getElementById("divRoll2").textContent = "Roll 2: " + roll2;
+            document.getElementById("divSum").textContent = "Roll Sum: " + sum;
+            
+
+            // see if the user lost - if they roll a sum of 9 or 10
+            // || - means or
+            // && - means and
+            if (sum == 9 || sum == 10){
+                console.log("you lost.");
+                result = "You lost.";
+            }
+            // check if we rolled an even number
+            // modulus - % - do a division problem and we get the remainder as the result
+            // 2/2 = 1 with no remainder
+            // roll1 % 2 == 0 - this will be true if we have an even number
+            // we also need to make sure that roll1 and roll2 resulted in the same value
+            else if(roll1 % 2 == 0 && roll1 == roll2){
+                console.log("you won!");
+                result = "You won!";
+            }
+            // the catch-all else statement if neither of the above statements evaluated to be true
+            else{
+                console.log("you drew (push)");
+                result = "You drew :/";
+            }
+            document.getElementById("divResult").textContent = result
+       
+        }
+
+        //create a function to generate a random number
+        function rollDice(){
+            // create a variable to hold a random number
+            // Math.random() is a built in JavaScript function which generates a random number 
+            let die = Math.random() * 8; // I want to repclicate a 8 sided die
+
+            // round the number and return the value
+            return Math.ceil(die);
+        }
+
+    </Script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to my Dice Game!</h1>
+    </header>
+    
+    <main>
+        <button onclick="playCraps()">Play Craps</button>
+
+        <div id="divRoll1">roll 1</div>
+        <div id="divRoll2">roll 2</div>
+        <div id="divSum">sum</div>
+        <div id="divResult">result</div>
+    </main>
+
+
+
+</body>
+</html>
