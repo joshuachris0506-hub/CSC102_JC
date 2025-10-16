@@ -47,3 +47,42 @@ function playCraps(){
          // round the number and return the value
          return Math.ceil(die);
         }
+
+
+        function validateForm(){
+            //get the value the user entered in for their first name 
+            //we will remove any spaces at the beginning or the end with trim()
+            let FirstName = document.getElementById("txtFirstName").value.trim();
+
+            let LastName = document.getElementById("txtLastName").value.trim();
+
+            let ZipCode = document.getElementById("txtZipCode").value.trim();
+
+            console.log("FirstName=" + FirstName);
+            console.log("LastName=" + LastName);
+            console.log("ZipCode=" + ZipCode);
+                // validation - we need to make sure that the first name + " " + last name is less then 20 characters
+
+                let message ="";
+
+                FullName = FirstName + " " + LastName;
+
+                console.log("FullName=" + FullName);
+
+                if (FullName.length > 20 || FullName.length ==1){
+                    message = "Name too long, come on bruh";
+                    console.log("invalid name");
+                }
+
+                else if (ZipCode.length != 5){
+
+                    message = "Did you even try putting in your real ZipCode?";
+                    console.log("Invalid ZipCode");
+                }
+                else{
+                    message = "Welcome, " + FirstName + ". The secret word is Bishop";
+
+                }
+                document.getElementById("divMessage").textContent = message;
+    
+        }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Example</title>
+
+    <link rel="stylesheet" href="Styles.css">
+    <script src="code.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Input Example</h1>
+    </header>
+
+    <main>
+        <div id="divMessage"></div>
+        <!-- form - post is the best option; use get for testing if needed; action is the name of the page that the form will post to - we skip posting in this class; set the name and id to the same value -->
+        <form method="post" action="#" name="formInput" id="formInput" onsubmit="return false;"> 
+            <!-- use the label to explain what type of information you want the user to enter in the related text box -->
+            <label for="txtFirstName">First Name:</label>
+            <!-- specify type of text when setting up a textbox to reduce issues later -->
+            <input type="text" name="txtFirstName" id="txtFirstName" placeholder="ex, Hikaru">
+
+            <!-- gather the user's favorite color -->
+            <label for="txtLastName">Last Name:</label>
+            <input type="text" name="txtLastName" id="txtLastName" placeholder="ex, cucumber"> 
+
+
+            <!-- gather the user's birthday -->
+            <label for="txtZipCode">ZipCode:</label>
+            <input type="text" name="txtZipCode" id="txtZipCode"> 
+
+            <button onclick="validateForm();">Save Information</button>
+        </form>
+
+
+       
+    </main>
+    
+</body>
+</html>
