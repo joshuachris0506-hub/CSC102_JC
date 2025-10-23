@@ -1,7 +1,7 @@
 function playCraps(){
      // log that the function was called
       console.log("playCraps() function was called"); 
-}
+
       // roll die 1
          let roll1 = rollDice();
             // roll die 2
@@ -37,7 +37,7 @@ function playCraps(){
              result = "You drew :/";
          }
          document.getElementById("divResult").textContent = result
-    
+        }
         
         //reate a function to generate a random number
         function rollDice(){
@@ -86,3 +86,37 @@ function playCraps(){
                 document.getElementById("divMessage").textContent = message;
     
         }
+
+
+
+        let intervalID = 0;
+
+        function startMove(){
+            let image = document.getElementById("chess");
+        
+            //store the current interval id
+            intervalID = setInterval(function(){
+        
+            let xCord = getRandNum();
+            let yCord = getRandNum();
+        
+            image.style.left = xCord + "px";
+            image.style.top = yCord + "px";
+        
+        
+        }, 900);
+                // the code that runs repeatedly 
+                document.getElementById("btnStart").disabled = true;
+                document.getElementById("btnStop").disabled = false;
+        }
+        function stopMove(){
+        
+            clearInterval(intervalID);
+            document.getElementById("btnStart").disabled = false;
+            document.getElementById("btnStop").disabled = true;
+        }
+        
+            // functio to randomly generate a number
+            function getRandNum(){
+                return Math.floor(Math.random() * 800);
+            }

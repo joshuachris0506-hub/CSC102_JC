@@ -11,6 +11,7 @@
     <!-- the text for the browser tab -->
     <title>Basic CSC102 Index</title>
     <link rel="stylesheet" href="Styles.css">
+    <script src="code.js"></script>
 </head>
 <!-- anything we want our user to see should go into the body section -->
 <body>
@@ -29,6 +30,9 @@
 
 <!-- this is a paragraph tag -->
 <p> 
+    <button id="btnStart" onclick="startMove();">Start The Journey</button>
+    <!-- the stop button should not be clickable when the page loads - disabled="true" means the button is not clickable -->
+    <button id="btnStop" onclick="stopMove();" disabled="true">Stop The Journey</button>
     <img src="chess.jpg" width="500" id="chess">
 
 </p>
