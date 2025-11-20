@@ -162,3 +162,33 @@ function playCraps(){
 
             return cleanedWord == reversedWord;
         }
+
+
+        function addAudio(){
+            // create a new audio HTML element
+            let audioElement = document.createElement("audio");
+            // set the id so that we can work with the audio element in other functions
+            audioElement.setAttribute("id", "myAudio");
+            audioElement.setAttribute("src", "just-relax-11157.mp3");
+            // this adds the control panel to show that the audio file is working
+            audioElement.setAttribute("controls", "controls");
+
+
+            // add the new audio element to the empty div in our HTML
+            document.getElementById("divAudio").appendChild(audioElement);
+
+            // hide the add audio button
+            document.getElementById("btnAddAudio").hidden = true; 
+
+            // unhide the play and pause buttons
+            document.getElementById("btnPlayAudio").hidden = false; 
+            document.getElementById("btnPauseAudio").hidden = false; 
+        }
+        function playAudio(){
+            let audio = document.getElementById("myAudio");
+            audio.play();
+        }
+        function pauseAudio(){
+            let audio = document.getElementById("myAudio");
+            audio.pause();
+        }
